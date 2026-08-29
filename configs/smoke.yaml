@@ -1,0 +1,39 @@
+project:
+  name: evalues_translation_routing_smoke
+  dataset_name: smoke
+  seed: 20260817
+  output_root: outputs
+  device: auto
+  deterministic: true
+
+dataset:
+  id: Davlan/sib200
+  revision: 38977a667f6fc264d5c26ec57a01e16db040b358
+  task: topic_classification
+  discovery_splits: [validation]
+  evaluation_split: test
+  languages:
+    - {name: French, code: fra_Latn, translate: true}
+    - {name: Swahili, code: swh_Latn, translate: true}
+  labels:
+    - science/technology
+    - travel
+    - politics
+    - sports
+    - health
+    - entertainment
+    - geography
+  max_rows_per_language: 8
+
+fixed_router:
+  translated_languages: [swh_Latn]
+
+runtime:
+  save_translations: true
+  save_embeddings: false
+  overwrite_completed_runs: false
+  num_workers: 1
+
+include_configs:
+  models: configs/models.yaml
+  statistics: configs/statistical_protocol.yaml

@@ -1,0 +1,25 @@
+statistics:
+  alpha: 0.05
+  eprocess:
+    type: one_sided_uniform_mixture_bernoulli
+    null_win_probability: 0.5
+    decision_threshold: 280.0
+    include_concordant_pairs: false
+    trajectory_order_seed: 20260817
+  paired_test:
+    type: exact_one_sided_binomial
+    alpha: 0.05
+  multiplicity:
+    report_bh: true
+    bh_q: 0.05
+    use_for_primary_routing: false
+  uncertainty:
+    bootstrap_replicates: 2000
+    confidence_level: 0.95
+    seed: 20260817
+simulations:
+  seed: 20260817
+  repetitions: 2000
+  horizon: 250
+  null_probabilities: [0.25, 0.4, 0.5]
+  alternative_probabilities: [0.55, 0.65, 0.8]

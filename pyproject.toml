@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evalues-routing"
+version = "0.1.0"
+description = "E-value based language-level translation routing for multilingual text classification"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = {text = "MIT"}
+dependencies = [
+  "numpy==1.26.4; platform_system == 'Darwin'",
+  "numpy==2.1.3; platform_system != 'Darwin'",
+  "scipy==1.16.1",
+  "pandas==2.2.3",
+  "scikit-learn==1.7.1",
+  "PyYAML==6.0.2",
+  "matplotlib==3.10.5",
+  "datasets==4.0.0",
+  "huggingface-hub==0.36.2",
+  "transformers==4.55.2",
+  "sentence-transformers==5.1.0",
+  "accelerate==1.10.0",
+  "sentencepiece==0.2.0",
+  "sacremoses==0.1.1",
+  "safetensors==0.8.0",
+  "torch==2.2.2; platform_system == 'Darwin'",
+  "torch==2.8.0; platform_system != 'Darwin'"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+evalues_routing = ["py.typed"]

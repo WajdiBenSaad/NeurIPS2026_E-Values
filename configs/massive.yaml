@@ -1,0 +1,47 @@
+project:
+  name: evalues_translation_routing
+  dataset_name: massive
+  seed: 20260817
+  output_root: outputs
+  device: auto
+  deterministic: true
+
+dataset:
+  id: AmazonScience/massive
+  revision: ff6bd8e4b27c3543e4f8fe2108f32bb95a6f8740
+  fallback_id: mteb/amazon_massive_intent
+  fallback_revision: 940fd47a81eaa7f2cc7b129674d945d618ac38c2
+  source: mteb
+  task: intent_classification
+  discovery_splits: [validation]
+  evaluation_split: test
+  languages:
+    - {name: English, code: en-US, nllb_code: eng_Latn, translate: false}
+    - {name: French, code: fr-FR, nllb_code: fra_Latn, translate: true}
+    - {name: German, code: de-DE, nllb_code: deu_Latn, translate: true}
+    - {name: Spanish, code: es-ES, nllb_code: spa_Latn, translate: true}
+    - {name: Portuguese, code: pt-PT, nllb_code: por_Latn, translate: true}
+    - {name: Arabic, code: ar-SA, nllb_code: arb_Arab, translate: true}
+    - {name: Turkish, code: tr-TR, nllb_code: tur_Latn, translate: true}
+    - {name: Polish, code: pl-PL, nllb_code: pol_Latn, translate: true}
+    - {name: Dutch, code: nl-NL, nllb_code: nld_Latn, translate: true}
+    - {name: Romanian, code: ro-RO, nllb_code: ron_Latn, translate: true}
+    - {name: Swahili, code: sw-KE, nllb_code: swh_Latn, translate: true}
+    - {name: Telugu, code: te-IN, nllb_code: tel_Telu, translate: true}
+    - {name: Bengali, code: bn-BD, nllb_code: ben_Beng, translate: true}
+    - {name: Amharic, code: am-ET, nllb_code: amh_Ethi, translate: true}
+    - {name: Afrikaans, code: af-ZA, nllb_code: afr_Latn, translate: true}
+  max_rows_per_language: null
+
+fixed_router:
+  translated_languages: [sw-KE, te-IN, bn-BD, am-ET, af-ZA]
+
+runtime:
+  save_translations: true
+  save_embeddings: false
+  overwrite_completed_runs: false
+  num_workers: 1
+
+include_configs:
+  models: configs/models.yaml
+  statistics: configs/statistical_protocol.yaml

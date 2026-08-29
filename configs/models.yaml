@@ -1,0 +1,19 @@
+models:
+  multilingual_encoder:
+    id: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    revision: e8f8c211226b894fcb81acc59f3b34ba3efd5f42
+    batch_size: 128
+  english_encoder:
+    id: sentence-transformers/paraphrase-MiniLM-L6-v2
+    revision: c9a2bfebc254878aee8c3aca9e6844d5bbb102d1
+    batch_size: 128
+  translation:
+    batch_size: 8
+    max_new_tokens: 256
+    num_beams: 1
+    nllb_model: facebook/nllb-200-distilled-600M
+    # Immutable safetensors conversion of the upstream pinned checkpoint. This
+    # avoids unsafe torch.load on Intel macOS, where Torch >=2.6 has no wheel.
+    nllb_revision: a3e77be725cf30383f1faeb8d2f0b0ea98ac554e
+    opus_models:
+      fra_Latn: {id: Helsinki-NLP/opus-mt-fr-en, revision: c4aed37b318c763fd177aa449b44e3b783cc6c02}

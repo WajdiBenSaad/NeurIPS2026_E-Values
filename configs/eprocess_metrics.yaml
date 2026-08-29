@@ -1,0 +1,21 @@
+seed: 20260823
+confidence_level: 0.95
+null_probability: 0.5
+primary_alpha: 0.05
+thresholds: [20.0, 280.0]
+primary_routing_threshold: 280.0
+per_group_sensitivity_threshold: 20.0
+
+synthetic:
+  repetitions: 10000
+  horizon: 500
+  reporting_budgets: [50, 100, 250, 500]
+  null_probabilities: [0.25, 0.40, 0.50]
+  alternative_probabilities: [0.525, 0.55, 0.575, 0.60, 0.65, 0.70, 0.80, 0.90]
+
+discovery_calibrated:
+  repetitions: 5000
+  include_english: false
+
+router_null:
+  independent_groups: true
